@@ -1,0 +1,9 @@
+[Fix]: 修复构建卡死的问题
+---
+[main 9f8fb4e] [Feat]: 专业绘画单选框可清空
+[main 912932b] [Fix]: 导出文档message先生成再摧毁
+[Fix]: 紧急修复为什么主站后台被改为演示站后台
+[Fix]: 修复在 Aibot 页面点击应用后不会跳转页面的问题
+Merge branch 'main' of github.com:zkeq/sparkai-frontend-sale into dev
+[Fix]: 修复移动端录音旁边的设置音色里面的试听功能
+[Feat]: 重构模型选择组件，分离成单个组件｜优化添加到常用模型逻辑

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.box {
+			width: 650px;
+			height: 500px;
+			border: 2px solid #ccc;
+			padding: 15px;
+			overflow-y: scroll;
+		}
+
+		.banner {
+			position: relative;
+			width: 100%;
+			height: 200px;
+			background-size: cover;
+			border-radius: 6px;
+			background-image: url('https://chevereto.sparkaigf.com/images/2014/sparkai_banner.png');
+		}
+
+		.tag {
+			padding: 3px 10px;
+			display: flex;
+			font-size: 14px;
+			justify-content: center;
+			align-items: center;
+			background: #5A91FCFF;
+			border-radius: 8px;
+			opacity: 0.8;
+			color: #ffffff;
+			margin-right: 10px;
+			user-select: none;
+		}
+
+		.title {
+			font-size: 2.5rem;
+			font-family: PingFang SC-Bold, PingFang SC;
+			color: #ffffff;
+			text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+			position: absolute;
+			left: 50px;
+			top: 70px;
+			background-clip: text;
+		}
+
+		.subtitle {
+			position: absolute;
+			left: 50px;
+			top: 140px;
+		}
+
+		.info {
+			font-weight: 400;
+			color: #ffffff;
+			user-select: none;
+			margin-right: 10px;
+		}
+
+
+		.notice_block{
+			box-shadow: 0px 8px 10px 1px rgba(0,0,0,0.1608);
+			border-radius: 6px;
+			padding: 10px;
+			margin-top: 25px;
+		}
+
+		.message {
+			margin-top: 20px;
+			font-size: 20px;
+			display: flex;
+			align-items: center;
+			padding-top: 15px;
+			padding-bottom: 10px;
+			border-top: 1px solid #DDDDDD;
+		}
+
+
+
+		.brage {
+			width: 4px;
+			height: 18px;
+			background: #5A91FCFF;
+			border-radius: 6px;
+			margin-right: 10px;
+		}
+
+		.notice-text {
+			color: #999999 !important;
+			margin-top: 10px;
+			padding-left: 15px;
+			font-size: 16px;
+		}
+
+		.author-info {
+			color: #999999 !important;
+			margin-top: 10px;
+			padding-left: 15px;
+			font-size: 16px;
+		}
+
+		.red {
+			color: red;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="box notice">
+		<div class="banner">
+			<div style="display: flex; position: absolute; left: 15px; top: 20px;">
+				<span class="tag">智能AI对话</span>
+				<span class="tag">创意AI绘图</span>
+				<span class="tag">高效办公协同</span>
+			</div>
+			<div class="title">SparkAi官方网站欢迎您</div>
+			<div class="subtitle">
+				<span class="info"> AI对话 </span>
+				<span class="info"> Midjourney绘画 </span>
+				<span class="info"> 思维导图 </span>
+				<span class="info"> 一站式搞定 </span>
+			</div>
+		</div>
+
+		<div class="block">
+			<div class="message">
+				<span class="brage"></span>
+				游客模式已开启 无需登录 畅享体验
+			</div>
+			<div class="notice-text">
+				3.5系列模型免费使用了 4.0模型免费使用 <br />
+				百度文心4.0全量免费中 <br />
+				限量MJ高质量绘画使用中 <br />
+			</div>
+		</div>
+
+		<div class="block">
+			<div class="message">
+				<span class="brage"></span>
+				扫码添加作者VX或加入官方微信|QQ交流群
+			</div>
+			<div class="author-info">
+				<img style="width: 185px; margin-right: 20px; display: inline-block;"
+					src="https://static.idcyli.com/sparkai/wx.png">
+				<img style="width: 185px; display: inline-block; margin-right: 20px"
+					src="https://static.idcyli.com/sparkai/qqq2.jpg">
+			</div>
+		</div>
+		<div class="block">
+			<div class="message">
+				<span class="brage"></span>
+				搭建同款站点 后台演示|后台演示系统
+			</div>
+			- 如果您想要搭建同款站点或者购买网站源代码请扫码添加作者！
+			- 后台系统演示站 [点击前往]<a href="https://ai.sparkaigf.com/sparkai/admin" target="_blank">后台管理演示站</a>
+			- 演示账号密码 admin 123456
+		</div>
+
+		<div class="block">
+			<div class="message red">
+				<span class="brage"></span>
+				官方渠道购买 【您将获得】<a href="https://ai.sparkaigf.com/pay"> 点击前往购买</a>
+			</div>
+
+			- 作者的vip服务、作者专属vip指导、保证您的服务稳定
+			- 永久免费更新特权、后续的更新将不需要任何费用
+			- 专属售后群服务、多位管理为您解决问题
+			- 不限量ip换绑、随时换绑个人服务器
+			- 一对一专属售后指导
+		</div>
+
+
+		<div class="block">
+			<div class="message red">
+				<span class="brage"></span>
+				接任意定制需求【APP、PC、小程序、系统定制、源码出售】
+			</div>
+		</div>
+
+
+
+
+	</div>
+</body>
+<script async src="//chevereto.sparkaigf.com/sdk/pup.js" data-url="https://chevereto.sparkaigf.com/upload"></script>
+</html>

@@ -1,0 +1,46 @@
+name: 构建并上传制品
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - buildArtifacts
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 从仓库检出代码(切换至指定分支)
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.client_payload.commit_hash || github.ref }}
+
+      - name: 设置 Node.js 环境
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.14.0'
+
+      - name: 安装 pnpm
+        run: npm install -g pnpm
+
+      - name: 安装依赖项
+        run: pnpm install
+
+      - name: 构建项目 (生产模式)
+        env:
+          BIND_DOMAIN: ${{ github.event.client_payload.bind_domain }}
+        run: pnpm build
+
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            dist/**

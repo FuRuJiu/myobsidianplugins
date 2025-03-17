@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/sparkai/(.*)",
+      "destination": "https://sparkai-backend.onmicrosoft.cn/sparkai/admin/"
+    }
+  ]
+}

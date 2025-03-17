@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg"> -->
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<link rel="apple-touch-icon" href="/favicon.ico">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no, viewport-fit=cover" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+	<script defer data-domain="super.imyai.top" src="https://site.imyai.top/js/script.js"></script>
+	<title>欢迎来到AI的世界</title>
+</head>
+<script>
+window.API_CONFIG = "https://sfa.imyai.top"
+</script>
+<script>
+const currentPath = window.location.pathname + window.location.search;
+function checkRegistrySpeed() {
+    const urls = [
+        { url: 'https://cn.imyai.top/generate_200', name: 'cn' },
+        { url: 'https://www.youtube.com/generate_204', name: 'global' }
+    ];
+    const currentPath = window.location.pathname + window.location.search;
+
+        function headRequest(url, name) {
+            return new Promise((resolve, reject) => {
+                const startTime = Date.now();
+                const request = new XMLHttpRequest();
+                request.open('GET', url, true);
+                request.onload = () => {
+                    const endTime = Date.now();
+                    resolve({ url, time: endTime - startTime, name });
+                };
+                request.onerror = (error) => {
+                    const endTime = Date.now();
+                    // Check if the error is a CORS error
+                    if (error && error.target && error.target.status === 0) {
+                        resolve({ url, time: endTime - startTime, name, error: 'CORS' });
+                    } else {
+                        reject({ url, time: endTime - startTime, name, error });
+                    }
+                };
+                request.send();
+            });
+        }
+
+        const startTime = Date.now();
+        const requests = urls.map(({ url, name }) => headRequest(url, name));
+
+    Promise.race(requests)
+        .then(result => {
+            const elapsedTime = Date.now() - startTime;
+            if (result.name === 'global') {
+                // 1. 在此处替换为您的海外版域名
+                window.location.href = `https://superhk.imyai.top${currentPath}`;
+            }
+            console.log(`Registry speed check completed in ${elapsedTime}ms`);
+            console.log(result);
+        })
+        .catch(error => {
+            console.error('Error checking registry speed:', error);
+        });
+}
+
+
+if (window.location.host === atob('')) {
+    checkRegistrySpeed();
+}
+</script>
+<style>
+	* {
+		box-sizing: border-box;
+	}
+
+	.main-container {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	body {
+		background: #fff;
+	}
+
+
+	.loader {
+		background: #000;
+		background: radial-gradient(#222, #000);
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: 99999;
+	}
+
+	.loader-inner {
+		bottom: 0;
+		height: 60px;
+		left: 0;
+		margin: auto;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100px;
+	}
+
+	.loader-line-wrap {
+		animation:
+			spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
+	;
+		box-sizing: border-box;
+		height: 50px;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		transform-origin: 50% 100%;
+		width: 100px;
+	}
+	.loader-line {
+		border: 4px solid transparent;
+		border-radius: 100%;
+		box-sizing: border-box;
+		height: 100px;
+		left: 0;
+		margin: 0 auto;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100px;
+	}
+	.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
+	.loader-line-wrap:nth-child(2) { animation-delay: -100ms; }
+	.loader-line-wrap:nth-child(3) { animation-delay: -150ms; }
+	.loader-line-wrap:nth-child(4) { animation-delay: -200ms; }
+	.loader-line-wrap:nth-child(5) { animation-delay: -250ms; }
+
+	.loader-line-wrap:nth-child(1) .loader-line {
+		border-color: hsl(0, 80%, 60%);
+		height: 90px;
+		width: 90px;
+		top: 7px;
+	}
+	.loader-line-wrap:nth-child(2) .loader-line {
+		border-color: hsl(60, 80%, 60%);
+		height: 76px;
+		width: 76px;
+		top: 14px;
+	}
+	.loader-line-wrap:nth-child(3) .loader-line {
+		border-color: hsl(120, 80%, 60%);
+		height: 62px;
+		width: 62px;
+		top: 21px;
+	}
+	.loader-line-wrap:nth-child(4) .loader-line {
+		border-color: hsl(180, 80%, 60%);
+		height: 48px;
+		width: 48px;
+		top: 28px;
+	}
+	.loader-line-wrap:nth-child(5) .loader-line {
+		border-color: hsl(240, 80%, 60%);
+		height: 34px;
+		width: 34px;
+		top: 35px;
+	}
+
+	@keyframes spin {
+		0%, 15% {
+			transform: rotate(0);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	.loading {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: transparent;
+		z-index: 9999;
+	}
+
+	.loading-text {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		text-align: center;
+		width: 100%;
+		height: 100px;
+		line-height: 100px;
+		color: #fff;
+
+	}
+
+	.loading-text span {
+		display: inline-block;
+		margin: 0 5px;
+		font-family: "Quattrocento Sans", sans-serif;
+	}
+
+	.loading-text span:nth-child(1) {
+		filter: blur(0px);
+		animation: blur-text 1.5s 0s infinite linear alternate;
+	}
+
+	.loading-text span:nth-child(2) {
+		filter: blur(0px);
+		animation: blur-text 1.5s 0.2s infinite linear alternate;
+	}
+
+	.loading-text span:nth-child(3) {
+		filter: blur(0px);
+		animation: blur-text 1.5s 0.4s infinite linear alternate;
+	}
+
+	.loading-text span:nth-child(4) {
+		filter: blur(0px);
+		animation: blur-text 1.5s 0.6s infinite linear alternate;
+	}
+
+	.loading-text span:nth-child(5) {
+		filter: blur(0px);
+		animation: blur-text 1.5s 0.8s infinite linear alternate;
+	}
+
+	.loading-text span:nth-child(6) {
+		filter: blur(0px);
+		animation: blur-text 1.5s 1s infinite linear alternate;
+	}
+
+	.loading-text span:nth-child(7) {
+		filter: blur(0px);
+		animation: blur-text 1.5s 1.2s infinite linear alternate;
+	}
+
+	@keyframes blur-text {
+		0% {
+			filter: blur(0px);
+		}
+
+		100% {
+			filter: blur(4px);
+		}
+	}
+
+	@media (prefers-color-scheme: dark) {
+		body {
+			background: #121212;
+		}
+	}
+</style>
+<body class="dark:bg-black">
+	<div id="app">
+		<div class="main-container ">
+			<div class="loading">
+				<div class="loading-text" id="loading-text">
+					<span class="loading-text-words">魔</span>
+					<span class="loading-text-words">法</span>
+					<span class="loading-text-words">即</span>
+					<span class="loading-text-words">将</span>
+					<span class="loading-text-words">发</span>
+					<span class="loading-text-words">生</span>
+					<span class="loading-text-words">……</span>
+				</div>
+			</div>
+		</div>
+
+
+		<script type="module" src="/src/main.ts"></script>
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+		<script>
+			const now = new Date()
+			const hour = now.getHours()
+			const words = document.querySelectorAll('.loading-text-words')
+			const theme = localStorage.theme
+
+			if (theme) {
+			  if (theme === 'dark') {
+			    document.body.style.backgroundColor = '#24272e'
+			    for (let i = 0; i < words.length; i++) {
+			      const word = words[i]
+			      word.style.color = '#fff'
+			    }
+			  }
+
+			  if (theme === 'light') {
+			    document.body.style.backgroundColor = '#fff'
+			    for (let i = 0; i < words.length; i++) {
+			      const word = words[i]
+			      word.style.color = '#24272e'
+			    }
+			  }
+			}
+			else {
+			  if (!theme && hour >= 6 && hour <= 20) {
+			    document.body.style.backgroundColor = '#fff'
+			    for (let i = 0; i < words.length; i++) {
+			      const word = words[i]
+			      word.style.color = '#24272e'
+			    }
+			  }
+			  else {
+			    document.body.style.backgroundColor = '#24272e'
+			    for (let i = 0; i < words.length; i++) {
+			      const word = words[i]
+			      word.style.color = '#fff'
+			    }
+			  }
+			}
+		</script>
+</body>
+</html>
+
+<script>document.querySelector('html').classList.toggle('loading')
+</script>
+<script src="/js/c.js"></script>
+<script>
+// window.handleImageError = function(element) {
+//     const fallbackDomain = 'https://source.imyai.top/build-artifacts';
+    
+//     // 如果已经是备用域名，则不再处理
+//     if (element.src.includes('source.imyai.top')) return;
+    
+//     try {
+//         // 使用 URL 对象解析原始 URL
+//         const originalUrl = new URL(element.src);
+//         const originalPath = originalUrl.pathname; // 包含完整的路径
+        
+//         const newSrc = fallbackDomain + originalPath;
+//         console.log(`图片加载失败，切换到备用地址：${newSrc}`);
+//         element.src = newSrc;
+//     } catch (error) {
+//         console.error('处理图片错误时发生异常：', error);
+//     }
+// };
+
+// // 使用 MutationObserver 监听 DOM 变化，处理动态添加的图片
+// const observer = new MutationObserver((mutations) => {
+//     mutations.forEach((mutation) => {
+//         mutation.addedNodes.forEach((node) => {
+//             // 处理直接添加的图片元素
+//             if (node.nodeName === 'IMG') {
+//                 node.addEventListener('error', function() {
+//                     window.handleImageError(this);
+//                 });
+//             }
+            
+//             // 处理添加的 DOM 树中的所有图片
+//             if (node.querySelectorAll) {
+//                 const images = node.querySelectorAll('img');
+//                 images.forEach(img => {
+//                     img.addEventListener('error', function() {
+//                         window.handleImageError(this);
+//                     });
+//                 });
+//             }
+//         });
+//     });
+// });
+
+// // 开始观察整个文档
+// observer.observe(document.documentElement, {
+//     childList: true,
+//     subtree: true
+// });
+
+// // 处理已存在的图片
+// document.querySelectorAll('img').forEach(img => {
+//     img.addEventListener('error', function() {
+//         window.handleImageError(this);
+//     });
+// });
+</script>
+<script>
+// // 定义需要替换的域名
+// const OLD_DOMAIN = 'super.imyai.top';
+// const NEW_DOMAIN = 'https://source.imyai.top/build-artifacts';
+
+// // 预处理图片URL的函数
+// function processImageUrl(url) {
+// 	if (!url) return url;
+	
+// 	try {
+// 		console.log('处理图片URL:', url);
+		
+// 		// 处理以 "/" 开头的图片路径
+// 		if (url.startsWith('/')) {
+// 			const newUrl = `${NEW_DOMAIN}${url}`;
+// 			console.log(`将本地路径转换为完整URL: ${url} -> ${newUrl}`);
+// 			return newUrl;
+// 		}
+		
+// 		// 处理包含旧域名的URL
+// 		if (url.includes(OLD_DOMAIN)) {
+// 			const originalUrl = new URL(url);
+// 			const newUrl = `${NEW_DOMAIN}${originalUrl.pathname}`;
+// 			console.log(`替换域名: ${url} -> ${newUrl}`);
+// 			return newUrl;
+// 		}
+		
+// 		console.log('URL无需处理:', url);
+// 		return url;
+// 	} catch (error) {
+// 		console.error('处理图片URL时发生错误:', error, '原始URL:', url);
+// 		return url;
+// 	}
+// }
+
+// // 处理已存在的图片
+// function processExistingImages() {
+// 	console.log('开始处理现有图片...');
+// 	const images = document.querySelectorAll('img');
+// 	console.log(`找到 ${images.length} 个现有图片`);
+	
+// 	images.forEach((img, index) => {
+// 		const originalSrc = img.getAttribute('src');
+// 		const newSrc = processImageUrl(originalSrc);
+// 		if (originalSrc !== newSrc) {
+// 			console.log(`[${index + 1}/${images.length}] 图片地址已更新`);
+// 			img.setAttribute('src', newSrc);
+// 		}
+// 	});
+// }
+
+// // 使用 MutationObserver 监听新添加的图片
+// const observer = new MutationObserver((mutations) => {
+// 	mutations.forEach((mutation) => {
+// 		mutation.addedNodes.forEach((node) => {
+// 			// 处理直接添加的图片元素
+// 			if (node.nodeName === 'IMG') {
+// 				console.log('检测到新添加的图片元素');
+// 				const originalSrc = node.getAttribute('src');
+// 				const newSrc = processImageUrl(originalSrc);
+// 				if (originalSrc !== newSrc) {
+// 					node.setAttribute('src', newSrc);
+// 				}
+// 			}
+			
+// 			// 处理添加的DOM树中的所有图片
+// 			if (node.querySelectorAll) {
+// 				const images = node.querySelectorAll('img');
+// 				if (images.length > 0) {
+// 					console.log(`检测到DOM变化，处理 ${images.length} 个新图片`);
+// 					images.forEach(img => {
+// 						const originalSrc = img.getAttribute('src');
+// 						const newSrc = processImageUrl(originalSrc);
+// 						if (originalSrc !== newSrc) {
+// 							img.setAttribute('src', newSrc);
+// 						}
+// 					});
+// 				}
+// 			}
+// 		});
+// 	});
+// });
+
+// // 开始观察整个文档
+// console.log('启动DOM观察器...');
+// observer.observe(document.documentElement, {
+// 	childList: true,
+// 	subtree: true
+// });
+
+// // 初始处理
+// console.log('等待DOM加载完成...');
+// document.addEventListener('DOMContentLoaded', () => {
+// 	console.log('DOM已加载完成，开始处理图片');
+// 	processExistingImages();
+// });
+</script>
